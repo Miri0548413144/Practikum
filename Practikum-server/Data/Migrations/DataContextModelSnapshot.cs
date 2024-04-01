@@ -30,23 +30,13 @@ namespace Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<DateTime>("EnteringDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsManagement")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Name")
-                        .HasColumnType("int");
-
-                    b.Property<int>("WorkerId")
-                        .HasColumnType("int");
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("WorkerId");
-
-                    b.ToTable("roles");
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("Core.Entities.Worker", b =>
@@ -86,15 +76,55 @@ namespace Data.Migrations
                     b.ToTable("Workers");
                 });
 
-            modelBuilder.Entity("Core.Entities.Role", b =>
+            modelBuilder.Entity("Core.Entities.WorkerRole", b =>
                 {
-                    b.HasOne("Core.Entities.Worker", "Worker")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<DateTime>("EnteringDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsManagement")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WorkerId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.HasIndex("WorkerId");
+
+                    b.ToTable("WorkerRole");
+                });
+
+            modelBuilder.Entity("Core.Entities.WorkerRole", b =>
+                {
+                    b.HasOne("Core.Entities.Role", "Role")
                         .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Worker", null)
+                        .WithMany("Roles")
                         .HasForeignKey("WorkerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Worker");
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("Core.Entities.Worker", b =>
+                {
+                    b.Navigation("Roles");
                 });
 #pragma warning restore 612, 618
         }

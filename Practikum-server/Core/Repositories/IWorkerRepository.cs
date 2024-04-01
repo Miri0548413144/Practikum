@@ -11,8 +11,8 @@ namespace Core.Repositories
   {
     List<Worker> GetWorkers();
     Worker GetWorker(int id);
-    async Task<Worker> AddWorkerAsync(Worker worker);
-    async Task<Worker> UpdateAsync(int id , Worker worker);
-    async Task<Worker> RemoveWorkerAsync(int id);
+    Task<Worker> AddWorkerAsync(Worker worker);
+    Task<Worker> UpdateAsync(int id, Worker worker);
+    Task<Worker> RemoveWorkerAsync(int id);
   }
 }

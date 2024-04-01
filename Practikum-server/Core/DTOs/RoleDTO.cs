@@ -9,9 +9,6 @@ namespace Core.DTOs
 {
   public class RoleDTO
   {
-    public Names Name { get; set; }
-    public bool IsManagement { get; set; }
-    public DateTime EnteringDate { get; set; }
-    public int WorkerId { get; set; }
+    public string Name { get; set; }
   }
 }

@@ -9,7 +9,8 @@ namespace Core
     public MappingProfile()
     {
         CreateMap<Worker,WorkerDTO>().ReverseMap();
-        CreateMap<Worker,WorkerDTO>().ReverseMap();
+        CreateMap<Role,RoleDTO>().ReverseMap();
+        CreateMap<WorkerRole,WorkerRoleDTO>().ReverseMap();
     }
   }
 }

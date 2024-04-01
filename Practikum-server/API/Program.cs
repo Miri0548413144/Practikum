@@ -6,6 +6,7 @@ using Data.Repositories;
 using Service;
 using AutoMapper;
 using Microsoft.AspNetCore.Hosting;
+using API;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,8 +18,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IWorkerService,WorkerService>();
 builder.Services.AddScoped<IWorkerRepository,WorkerRepository>();
+builder.Services.AddScoped<IRoleService,RoleService>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddDbContext<DataContext>();
-builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddAutoMapper(typeof(MappingProfile),typeof(APIMapping));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -10,7 +10,7 @@ namespace API.Models
     public DateTime StartDate { get; set; }
     public DateTime BirthDate { get; set; }
     public Gender MyGender { get; set; }
-    public List<RoleToPost> Roles = new List<RoleToPost>();
     public bool Active { get; set; }
+    public List<WorkerRoleToPost> Roles { get; set; }
   }
 }

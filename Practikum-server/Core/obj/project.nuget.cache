@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MiWjizs82FtydriWZWg/QFrv0/Km646UrJ3pWLcpBwfkwdbrEQJ7cL3Bisbs89WyyymBOiO16szfewLIYZvoXA==",
+  "dgSpecHash": "kZUO7Ux013d0QO/k3krcYVFQeX5s76vGjnKDUtLPCVCrP3rnyEnErxWGPZZNmT3oMQkoWMXzNQr3mh/TIswXmw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Documents\\c#\\Practikum\\Core\\Core.csproj",
+  "projectFilePath": "C:\\Users\\User\\Documents\\c#\\Practikum\\Practikum-server\\Core\\Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\linq2db\\5.4.0\\linq2db.5.4.0.nupkg.sha512",

@@ -1,5 +1,6 @@
 using Core.Entities;
 using Core.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Data.Repositories
     }
     public List<Worker> GetWorkers()
     {
-      return _context.Workers.ToList();
+      return _context.Workers.Include(roleWorker => roleWorker.Roles).ThenInclude(roleWorker => roleWorker.Role).ToList();
     }
 
     public Worker GetWorker(int id)

@@ -4,7 +4,7 @@
 
 namespace Data.Migrations
 {
-    public partial class _5th : Migration
+    public partial class _666th : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

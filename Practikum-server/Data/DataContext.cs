@@ -11,7 +11,8 @@ namespace Data
   public class DataContext:DbContext
   {
     public DbSet<Worker> Workers { get; set; }
-    public DbSet<Role> roles { get; set; }
+    public DbSet<Role> Roles { get; set; }
+    public DbSet<WorkerRole> WorkerRole { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

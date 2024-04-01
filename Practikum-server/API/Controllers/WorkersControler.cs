@@ -63,7 +63,7 @@ namespace API.Controllers
         return NotFound();
       }
       _mapper.Map(worker, existWorker);
-      await _workerService.UpdateAsync(id, existWorker);
+      await _workerService.UpdateAsync(id, worker);
 
       return Ok(_mapper.Map<WorkerDTO>(existWorker));
     }
