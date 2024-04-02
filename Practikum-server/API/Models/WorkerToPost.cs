@@ -11,6 +11,7 @@ namespace API.Models
     public DateTime BirthDate { get; set; }
     public Gender MyGender { get; set; }
     public bool Active { get; set; }
+    public string ImageURL { get; set; }
     public List<WorkerRoleToPost> Roles { get; set; }
   }
 }

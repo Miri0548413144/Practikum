@@ -9,6 +9,7 @@ namespace Core.DTOs
 {
   public class WorkerDTO
   {
+    public int Id { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Tz { get; set; }
@@ -16,6 +17,7 @@ namespace Core.DTOs
     public DateTime BirthDate { get; set; }
     public Gender MyGender { get; set; }
     public bool Active { get; set; }
+    public string ImageURL { get; set; }
     public List<WorkerRoleDTO> Roles { get; set; } 
   }
 }

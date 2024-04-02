@@ -19,6 +19,7 @@ namespace Core.Entities
         public DateTime BirthDate { get; set; }
         public Gender MyGender { get; set; }
         public bool Active {  get; set; }
+        public string ImageURL {  get; set; }
         public List<WorkerRole> Roles { get; set; }
   //  public Worker(string firstName, string lastName, string tz, DateTime startDate, DateTime birthDate, Gender myGender, bool active,List<Role>roles)
   //  {

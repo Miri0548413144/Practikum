@@ -1,0 +1,4 @@
+export const GET_WORKERS="GET_WORKERS";
+export const ADD_WORKERS="ADD_WORKERS";
+export const EDIT_WORKERS="EDIT_WORKERS";
+export const DELETE_WORKERS="DELETE_WORKERS";
