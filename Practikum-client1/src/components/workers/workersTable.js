@@ -1,19 +1,27 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Collapse, Typography, IconButton } from '@mui/material';
 import { ExpandMore as ExpandMoreIcon, ExpandLess as ExpandLessIcon, AddCircle as AddCircleIcon, Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
+import { deleteWorker } from '../../service/workerServer';
+import { Link } from 'react-router-dom';
 
 export default function WorkersTable() {
     const workers = useSelector(state => state.workers);
     const [expandedRow, setExpandedRow] = useState(null);
     const [showAddWorkerForm, setShowAddWorkerForm] = useState(false);
+    const dispatch = useDispatch();
 
     const handleRowClick = (index) => {
         setExpandedRow(expandedRow === index ? null : index);
     };
 
-    const handleAddWorker = () => {
-        setShowAddWorkerForm(true);
+    // const handleAddWorker = () => {
+    //     <Link to="/addWorker" > add worker</Link>
+    // };
+
+    const handleDeleteWorker = (id) => {
+        console.log("delete")
+        dispatch(deleteWorker(id));
     };
 
     return (
@@ -25,7 +33,12 @@ export default function WorkersTable() {
                         <TableCell>Last Name</TableCell>
                         <TableCell>TZ</TableCell>
                         <TableCell>Start Date</TableCell>
-                        <TableCell></TableCell>
+                        <TableCell>
+                            <IconButton component={Link} to="/addWorker" size="small">
+                                <AddCircleIcon />
+                            </IconButton>
+                            {showAddWorkerForm}
+                        </TableCell>
                         <TableCell></TableCell>
                     </TableRow>
                 </TableHead>
@@ -43,10 +56,7 @@ export default function WorkersTable() {
                                     </IconButton>
                                 </TableCell>
                                 <TableCell>
-                                    <IconButton size="small">
-                                        <EditIcon />
-                                    </IconButton>
-                                    <IconButton size="small">
+                                    <IconButton size="small" onClick={() => handleDeleteWorker(worker.id)}>
                                         <DeleteIcon />
                                     </IconButton>
                                 </TableCell>
@@ -71,10 +81,7 @@ export default function WorkersTable() {
                     ))}
                 </TableBody>
             </Table>
-            <IconButton onClick={handleAddWorker}>
-                <AddCircleIcon />
-            </IconButton>
-            {showAddWorkerForm }
+
         </TableContainer>
     );
 }
