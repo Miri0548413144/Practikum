@@ -25,6 +25,7 @@ function App() {
         <Route path="/homePage" element={<HomePage />} />
         <Route path="/workersTable" element={<WorkersTable />} />
         <Route path="/addWorker" element={<AddWorker/>} />
+        <Route path="/editWorker" element={<AddWorker/>} />
       </Routes>
       <HomePage />
       <Link to="/workersTable">  workers Table</Link>

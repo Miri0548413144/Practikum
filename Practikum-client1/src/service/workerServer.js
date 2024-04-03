@@ -6,7 +6,7 @@ export function getWorker() {
         console.log("before")
         axios.get("https://localhost:7059/api/Workers")
             .then(x => {
-                dispatch({ type: "GET_WORKERS", payload: x.data })
+                dispatch({ type: Actions.GET_WORKERS, payload: x.data })
                 console.log("middle", x.data)
             })
             .catch(err => console.log(err))
@@ -16,7 +16,7 @@ export function addWorker(data, navigate) {
     return dispatch => {
         axios.post("https://localhost:7059/api/Workers", data)
             .then(x => {
-                dispatch({ type: Actions.ADD_WORKERS, payload: x.data })
+                dispatch({ type: Actions.ADD_WORKER, payload: x.data })
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -25,7 +25,7 @@ export function addWorker(data, navigate) {
                     timer: 1500
                 });
 
-                // navigate('/recipes');
+                navigate('/workersTable');
             })
             .catch(err =>
                 Swal.fire({
@@ -40,9 +40,10 @@ export function addWorker(data, navigate) {
 }
 export function editWorker(data, navigate) {
     return dispatch => {
-        axios.put(`https://localhost:7059/api/Workers/${data.Id}`, data)
+        console.log("bef",data)
+        axios.put(`https://localhost:7059/api/Workers/${data.id}`, data)
             .then(x => {
-                dispatch({ type: Actions.EDIT_WORKERS, payload: x.data })
+                dispatch({ type: Actions.EDIT_WORKER, payload: x.data })
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -50,7 +51,7 @@ export function editWorker(data, navigate) {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                // navigate('/recipes');
+                navigate('/workersTable');
 
             })
             .catch(err => Swal.fire({
@@ -59,6 +60,7 @@ export function editWorker(data, navigate) {
                 title: "Update failed!",
                 showConfirmButton: false,
                 timer: 1500
+              
             }))
     }
 }
@@ -66,7 +68,7 @@ export function deleteWorker(id, navigate) {
     return dispatch => {
         axios.delete(`https://localhost:7059/api/Workers/${id}`)
             .then(x => {
-                dispatch({ type: Actions.DELETE_WORKERS, payload: x.data })
+                dispatch({ type: Actions.DELETE_WORKER, payload: x.data })
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -75,7 +77,7 @@ export function deleteWorker(id, navigate) {
                     timer: 1500
                 });
 
-                // navigate('/recipes')
+                 navigate('/workersTable')
             })
             .catch(err => Swal.fire({
                 position: "top-end",

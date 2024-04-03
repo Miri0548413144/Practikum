@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Collapse, Typography, IconButton } from '@mui/material';
 import { ExpandMore as ExpandMoreIcon, ExpandLess as ExpandLessIcon, AddCircle as AddCircleIcon, Edit as EditIcon, Delete as DeleteIcon } from '@mui/icons-material';
 import { deleteWorker } from '../../service/workerServer';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 export default function WorkersTable() {
+    const { state } = useLocation();
+    const navigate = useNavigate();
     const workers = useSelector(state => state.workers);
     const [expandedRow, setExpandedRow] = useState(null);
     const [showAddWorkerForm, setShowAddWorkerForm] = useState(false);
@@ -58,6 +60,11 @@ export default function WorkersTable() {
                                 <TableCell>
                                     <IconButton size="small" onClick={() => handleDeleteWorker(worker.id)}>
                                         <DeleteIcon />
+                                    </IconButton>
+                                </TableCell>
+                                <TableCell>
+                                    <IconButton size="small" onClick={() => { navigate("/editWorker", { state: worker }) }}>
+                                        <EditIcon />
                                     </IconButton>
                                 </TableCell>
                             </TableRow>

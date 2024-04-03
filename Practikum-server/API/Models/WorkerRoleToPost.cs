@@ -7,6 +7,6 @@ namespace API.Models
   {
     public bool IsManagement { get; set; }
     public DateTime EnteringDate { get; set; }
-    public RoleToPost Role { get; set; }
+    public int RoleId { get; set; }
   }
 }

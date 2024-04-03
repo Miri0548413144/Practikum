@@ -11,6 +11,6 @@ namespace Core.DTOs
   {   
     public bool IsManagement { get; set; }
     public DateTime EnteringDate { get; set; }
-    public RoleDTO Role { get; set; }
+    public int RoleId { get; set; }
   }
 }
