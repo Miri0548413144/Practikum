@@ -23,3 +23,15 @@ C:\Users\User\Documents\c#\Practikum\Practikum-server\Core\obj\Debug\net6.0\Core
 C:\Users\User\Documents\c#\Practikum\Practikum-server\Core\obj\Debug\net6.0\refint\Core.dll
 C:\Users\User\Documents\c#\Practikum\Practikum-server\Core\obj\Debug\net6.0\Core.pdb
 C:\Users\User\Documents\c#\Practikum\Practikum-server\Core\obj\Debug\net6.0\ref\Core.dll
+D:\Practikum\Practikum\Practikum-server\Core\bin\Debug\net6.0\Core.deps.json
+D:\Practikum\Practikum\Practikum-server\Core\bin\Debug\net6.0\Core.dll
+D:\Practikum\Practikum\Practikum-server\Core\bin\Debug\net6.0\Core.pdb
+D:\Practikum\Practikum\Practikum-server\Core\obj\Debug\net6.0\Core.csproj.AssemblyReference.cache
+D:\Practikum\Practikum\Practikum-server\Core\obj\Debug\net6.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Practikum\Practikum\Practikum-server\Core\obj\Debug\net6.0\Core.AssemblyInfoInputs.cache
+D:\Practikum\Practikum\Practikum-server\Core\obj\Debug\net6.0\Core.AssemblyInfo.cs
+D:\Practikum\Practikum\Practikum-server\Core\obj\Debug\net6.0\Core.csproj.CoreCompileInputs.cache
+D:\Practikum\Practikum\Practikum-server\Core\obj\Debug\net6.0\Core.dll
+D:\Practikum\Practikum\Practikum-server\Core\obj\Debug\net6.0\refint\Core.dll
+D:\Practikum\Practikum\Practikum-server\Core\obj\Debug\net6.0\Core.pdb
+D:\Practikum\Practikum\Practikum-server\Core\obj\Debug\net6.0\ref\Core.dll
