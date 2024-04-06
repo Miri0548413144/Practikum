@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import WorkersTable from './components/workers/workersTable';
 import HomePage from './components/homePage';
 import AddWorker from './components/workers/addWorker';
+import { getRoles } from './service/RoleServer';
 
 function App() {
   // const navig = useNavigate();
@@ -15,9 +16,8 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getWorker())
+    dispatch(getRoles())
   }, [])
-  const workers = useSelector(state => state.workers);
-  console.log(workers, "workers")
   return (
     <div >
       <Routes>

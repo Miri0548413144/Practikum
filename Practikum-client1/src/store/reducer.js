@@ -1,35 +1,38 @@
-import * as Actions from './action'
- const initalseState = {
-    workers: [],
-    roles:[]
-}
+import * as Actions from './action';
 
-const reducer= (state = initalseState, action) => {
+const initialState = {
+    workers: [],
+    roles: []
+};
+
+const reducer = (state = initialState, action) => {
     switch (action.type) {
         case Actions.GET_WORKERS:
-            return { ...state, workers: action.payload }
+            return { ...state, workers: action.payload };
         case Actions.ADD_WORKER:
-            const workers = [...state.workers];
-            workers.push(action.payload);
-            return { ...state, workers }
+            const newWorkers = [...state.workers, action.payload];
+            return { ...state, workers: newWorkers };
         case Actions.EDIT_WORKER: {
-            const workers = [...state.workers];
-            const findIndex = workers.findIndex(x => x.Id == action.payload.Id);
-            workers[findIndex] = action.payload;
-            return { ...state, workers }
+            const updatedWorkers = state.workers.map(worker =>
+                worker.id === action.payload.id ? action.payload : worker
+            );
+            return { ...state, workers: updatedWorkers };
         }
-        case Actions.DELETE_WORKER:{
-            const workers = state.workers.filter(x => x.Id != action.payload.Id);
-            return { ...state, workers }
+        case Actions.DELETE_WORKER: {
+            const filteredWorkers = state.workers.filter(worker =>
+                worker.id !== action.payload.id
+            );
+            return { ...state, workers: filteredWorkers };
         }
-        default: return { ...state }
         case Actions.GET_ROLES:
-            return { ...state, roles: action.payload }
+            console.log("lllllll")
+            return { ...state, roles: action.payload };
         case Actions.ADD_ROLE:
-            const roles = [...state.roles];
-            roles.push(action.payload);
-            return { ...state, roles }
+            const newRoles = [...state.roles, action.payload];
+            return { ...state, roles: newRoles };
+        default:
+            return state;
     }
-}
+};
 
 export default reducer;

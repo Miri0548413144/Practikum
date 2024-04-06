@@ -3,16 +3,16 @@ import * as Actions from '../store/action'
 import Swal from "sweetalert2";
 export function getRoles() {
     return dispatch => {
-        console.log("before")
+        console.log("beforep")
         axios.get("https://localhost:7059/api/Role")
             .then(x => {
-                dispatch({ type: Actions., payload: x.data })
-                console.log("middle", x.data)
+                dispatch({ type: Actions.GET_ROLES, payload: x.data })
+                console.log("middleR", x.data)
             })
             .catch(err => console.log(err))
     }
 }
-export function addWorker(data, navigate) {
+export function addRole(data, navigate) {
     return dispatch => {
         axios.post("https://localhost:7059/api/Workers", data)
             .then(x => {

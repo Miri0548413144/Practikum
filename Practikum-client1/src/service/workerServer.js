@@ -40,7 +40,7 @@ export function addWorker(data, navigate) {
 }
 export function editWorker(data, navigate) {
     return dispatch => {
-        console.log("bef",data)
+        console.log("bef", data)
         axios.put(`https://localhost:7059/api/Workers/${data.id}`, data)
             .then(x => {
                 dispatch({ type: Actions.EDIT_WORKER, payload: x.data })
@@ -52,7 +52,6 @@ export function editWorker(data, navigate) {
                     timer: 1500
                 });
                 navigate('/workersTable');
-
             })
             .catch(err => Swal.fire({
                 position: "top-end",
@@ -60,7 +59,7 @@ export function editWorker(data, navigate) {
                 title: "Update failed!",
                 showConfirmButton: false,
                 timer: 1500
-              
+
             }))
     }
 }
@@ -68,7 +67,7 @@ export function deleteWorker(id, navigate) {
     return dispatch => {
         axios.delete(`https://localhost:7059/api/Workers/${id}`)
             .then(x => {
-                dispatch({ type: Actions.DELETE_WORKER, payload: x.data })
+                dispatch({ type: Actions.DELETE_WORKER, payload: id})
                 Swal.fire({
                     position: "top-end",
                     icon: "success",
@@ -76,16 +75,43 @@ export function deleteWorker(id, navigate) {
                     showConfirmButton: false,
                     timer: 1500
                 });
-
-                 navigate('/workersTable')
+                navigate('/workersTable')
             })
-            .catch(err => Swal.fire({
+            .catch(err => {console.log("err",err)
+            Swal.fire({
                 position: "top-end",
                 icon: "error",
                 title: "Worker not delete",
                 showConfirmButton: false,
                 timer: 1500
-            })
+            })}
             )
     }
 }
+// export function deleteWorker(id, navig) {
+//     return dispatch => {
+//         axios.delete(`https://localhost:7059/api/Workers/${id}`)
+//         .then(x => {
+//           console.log("delete xxx")
+//           dispatch({ type: Actions.DELETE_WORKER, payload: id })
+//           Swal.fire({
+//             position: "top-end",
+//             icon: "success",
+//             title: " העובד נמחק בהצלחה",
+//             showConfirmButton: false,
+//             timer: 1500
+//           });
+//           navigate('/workersTable')
+//         })
+//         .catch(err => {
+//           console.log(err)
+//           Swal.fire({
+//             position: "top-end",
+//             icon: "error",
+//             title: "קרתה תקלה במחיקת העובד נסה שנית",
+//             showConfirmButton: false,
+//             timer: 1500
+//           });
+//         })
+//     }
+// }

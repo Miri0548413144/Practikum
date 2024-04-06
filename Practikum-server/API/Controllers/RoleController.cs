@@ -4,6 +4,7 @@ using Core.DTOs;
 using Core.Entities;
 using Core.Sevices;
 using Microsoft.AspNetCore.Mvc;
+using Service;
 using System.Data;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -53,6 +54,16 @@ namespace API.Controllers
       var roleDto = _mapper.Map<RoleDTO>(addedRole);
       return Ok(roleDto);
     }
-
+    // DELETE api/<RolesController>/5
+    //[HttpDelete("{id}")]
+    //public async Task<ActionResult<Role>> Delete(int id)
+    //{
+    //  var removedRole = await _roleService.RemoveRoleAsync(id);
+    //  if (removedRole == null)
+    //  {
+    //    return NotFound();
+    //  }
+    //  return removedRole;
+    //}
   }
 }

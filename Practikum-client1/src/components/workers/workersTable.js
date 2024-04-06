@@ -9,6 +9,7 @@ export default function WorkersTable() {
     const { state } = useLocation();
     const navigate = useNavigate();
     const workers = useSelector(state => state.workers);
+    const roles = useSelector(state => state.roles);
     const [expandedRow, setExpandedRow] = useState(null);
     const [showAddWorkerForm, setShowAddWorkerForm] = useState(false);
     const dispatch = useDispatch();
@@ -22,8 +23,7 @@ export default function WorkersTable() {
     // };
 
     const handleDeleteWorker = (id) => {
-        console.log("delete")
-        dispatch(deleteWorker(id));
+        dispatch(deleteWorker(id,navigate));
     };
 
     return (
@@ -79,7 +79,7 @@ export default function WorkersTable() {
                                         </Typography>
                                         <Typography variant="body2" gutterBottom>
                                             Image:
-                                            <img src={worker.imageURL} alt={`Image of ${worker.firstName} ${worker.lastName}`} style={{ width: '100%', height: 'auto' }} />
+                                            <img src={worker.imageURL} alt={`Image of ${worker.firstName} ${worker.lastName}`} style={{ width: '30%', height: 'auto' }} />
                                         </Typography>
                                     </Collapse>
                                 </TableCell>
@@ -88,7 +88,6 @@ export default function WorkersTable() {
                     ))}
                 </TableBody>
             </Table>
-
         </TableContainer>
     );
 }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Practikum\\Practikum\\Practikum-server\\Data\\Data.csproj": {}
+    "C:\\Users\\User\\Documents\\c#\\Practikum\\Practikum-server\\Data\\Data.csproj": {}
   },
   "projects": {
-    "D:\\Practikum\\Practikum\\Practikum-server\\Core\\Core.csproj": {
+    "C:\\Users\\User\\Documents\\c#\\Practikum\\Practikum-server\\Core\\Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Practikum\\Practikum\\Practikum-server\\Core\\Core.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\c#\\Practikum\\Practikum-server\\Core\\Core.csproj",
         "projectName": "Core",
-        "projectPath": "D:\\Practikum\\Practikum\\Practikum-server\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\hitmachut\\.nuget\\packages\\",
-        "outputPath": "D:\\Practikum\\Practikum\\Practikum-server\\Core\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\c#\\Practikum\\Practikum-server\\Core\\Core.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\c#\\Practikum\\Practikum-server\\Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hitmachut\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -69,29 +69,43 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Practikum\\Practikum\\Practikum-server\\Data\\Data.csproj": {
+    "C:\\Users\\User\\Documents\\c#\\Practikum\\Practikum-server\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Practikum\\Practikum\\Practikum-server\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\c#\\Practikum\\Practikum-server\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "D:\\Practikum\\Practikum\\Practikum-server\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\hitmachut\\.nuget\\packages\\",
-        "outputPath": "D:\\Practikum\\Practikum\\Practikum-server\\Data\\obj\\",
+        "projectPath": "C:\\Users\\User\\Documents\\c#\\Practikum\\Practikum-server\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Documents\\c#\\Practikum\\Practikum-server\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\hitmachut\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -107,8 +121,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\Practikum\\Practikum\\Practikum-server\\Core\\Core.csproj": {
-                "projectPath": "D:\\Practikum\\Practikum\\Practikum-server\\Core\\Core.csproj"
+              "C:\\Users\\User\\Documents\\c#\\Practikum\\Practikum-server\\Core\\Core.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\c#\\Practikum\\Practikum-server\\Core\\Core.csproj"
               }
             }
           }
@@ -145,12 +159,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.28, 6.0.28]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
