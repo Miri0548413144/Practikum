@@ -14,7 +14,7 @@ namespace Core.Entities
     public bool IsManagement { get; set; }
     public DateTime EnteringDate { get; set; }
     //public Worker Worker { get; set; }
-    public Role Role { get; set; }
+    //public Role Role { get; set; }
 
   }
 }

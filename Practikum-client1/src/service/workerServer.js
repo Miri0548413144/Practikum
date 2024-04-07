@@ -41,7 +41,7 @@ export function addWorker(data, navigate) {
 export function editWorker(data, navigate) {
     return dispatch => {
         console.log("bef", data)
-        axios.put(`https://localhost:7059/api/Workers/${data.id}`, data)
+        axios.put(`https://localhost:7059/api/Workers/${data.id}`,data)
             .then(x => {
                 dispatch({ type: Actions.EDIT_WORKER, payload: x.data })
                 Swal.fire({
@@ -53,14 +53,13 @@ export function editWorker(data, navigate) {
                 });
                 navigate('/workersTable');
             })
-            .catch(err => Swal.fire({
+            .catch(err => {console.log("err",err), Swal.fire({
                 position: "top-end",
                 icon: "error",
                 title: "Update failed!",
                 showConfirmButton: false,
                 timer: 1500
-
-            }))
+            })})
     }
 }
 export function deleteWorker(id, navigate) {

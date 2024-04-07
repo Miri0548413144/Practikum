@@ -56,22 +56,24 @@ export default function AddWorker() {
         }
     }, [state, setValue]);
 
-    // פונקציה שמטפלת בשליחת הטופס
     const onSubmit = (data) => {
         if (state) {
+            data["id"]=state.id;
+            data["roles.workerId"]=state.id;
+            data["roles.role"]={state.r};
+            console.log("dataEdit", data)
             dispatch(editWorker({ ...data }, navigate))
         }
         else {
+            console.log("dataAdd", data)
             dispatch(addWorker({ ...data }, navigate))
         }
     };
 
-    // שימוש ב Hook של react-hook-form לניהול שדות מסוג array
     const { fields: fieldsRoles, append: appendRoles, remove: removeRoles } = useFieldArray({ control, name: 'roles' });
 
     return (
         <div className="add-worker-form">
-            <p>Add Worker</p>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Stack spacing={2}>
                     {/* קומפוננטות ה-FormControl לשדות הטופס */}
@@ -130,19 +132,23 @@ export default function AddWorker() {
                             <FormControl variant="standard" sx={{ m: 1, minWidth: 185 }}>
                                 <InputLabel htmlFor={`role-id-${index}`}>Role</InputLabel>
                                 <Select
-                                    {...register(`roles.${index}.roleId`, { required: true })}
+                                    {...register(`roles.${index}.roleId`, { defaultValue: '' })}
+                                    labelId="demo-simple-select-standard-label"
                                     id={`role-id-${index}`}
                                     label="Role"
                                 >
-                                    <MenuItem value="">Select Role</MenuItem>
+                                    <MenuItem value="1">
+                                        <em>Select Role</em>
+                                    </MenuItem>
                                     {roles?.map((role) => (
-                                        <MenuItem key={role.id} value={role.roleId}>
-                                            {role?.name}
+                                        <MenuItem key={role.id} value={role.id}>
+                                            <p>{role?.name}</p>
                                         </MenuItem>
                                     ))}
                                 </Select>
-
                             </FormControl>
+
+
                             {/* כפתור למחיקת התפקיד */}
                             <IconButton onClick={() => removeRoles(index)}>
                                 <DeleteForever />
@@ -154,7 +160,7 @@ export default function AddWorker() {
                 <Button variant="contained" onClick={() => appendRoles({})}>Add Role</Button>
                 <br />
                 {/* כפתור לשליחת הטופס */}
-                <Button type="submit" variant="contained">Add Worker</Button>
+                <Button type="submit" variant="contained">submit</Button>
             </form>
         </div>
     );
