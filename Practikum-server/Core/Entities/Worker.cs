@@ -7,7 +7,7 @@ using Core.Entities;
 
 namespace Core.Entities
 {
-  public enum Gender { Male, Female ,other} 
+  public enum Gender { Male=1, Female=2 ,other=3} 
 
   public class Worker
     {

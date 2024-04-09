@@ -46,7 +46,7 @@ namespace API.Controllers
     // POST api/<WorkersController>
     [HttpPost]
     public async Task<ActionResult<Worker>> Post([FromBody] WorkerToPost worker)
-    {
+    { 
       var workerToAdd =  _mapper.Map<Worker>(worker);
       var addedWorker = await _workerService.AddWorkerAsync(workerToAdd);
       var workerDto = _mapper.Map<WorkerDTO>(addedWorker);

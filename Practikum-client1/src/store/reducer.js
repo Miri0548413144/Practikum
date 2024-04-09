@@ -25,7 +25,6 @@ const reducer = (state = initialState, action) => {
             return { ...state, workers: filteredWorkers };
         }
         case Actions.GET_ROLES:
-            console.log("lllllll")
             return { ...state, roles: action.payload };
         case Actions.ADD_ROLE:
             const newRoles = [...state.roles, action.payload];

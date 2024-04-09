@@ -102,8 +102,6 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("RoleId");
-
                     b.HasIndex("WorkerId");
 
                     b.ToTable("WorkerRole");
@@ -111,19 +109,11 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Core.Entities.WorkerRole", b =>
                 {
-                    b.HasOne("Core.Entities.Role", "Role")
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Core.Entities.Worker", null)
                         .WithMany("Roles")
                         .HasForeignKey("WorkerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Role");
                 });
 
             modelBuilder.Entity("Core.Entities.Worker", b =>
