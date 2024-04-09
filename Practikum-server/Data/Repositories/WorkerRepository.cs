@@ -27,14 +27,6 @@ namespace Data.Repositories
 
     public async Task<Worker> AddWorkerAsync(Worker worker)
     {
-      bool valid = true;
-      for (int i = 0; i < worker.Roles.Count(); i++)
-      {
-        if (worker.Roles[i].EnteringDate < worker.StartDate)
-            valid = false;
-      }
-      if (!valid)
-          throw new InvalidDataException("entering day is not valid");
       
       _context.Workers.Add(worker);
       await _context.SaveChangesAsync(); 
@@ -44,15 +36,7 @@ namespace Data.Repositories
 
     public async Task<Worker> UpdateAsync(int id, Worker worker)
     {
-      bool valid = true;
-      for (int i = 0; i < worker.Roles.Count(); i++)
-      {
-        if (worker.Roles[i].EnteringDate < worker.StartDate)
-          valid = false;
-      }
-      if (!valid)
-        throw new InvalidDataException("entering day is not valid");
-
+     
       Worker existingWorker = _context.Workers.FirstOrDefault(w => w.Id == id);
       if (existingWorker != null)
       {

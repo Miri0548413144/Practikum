@@ -57,18 +57,19 @@ export default function WorkersTable() {
     );
 
     return (
-        <div>
-            {/* Search text field */}
-            <TextField
-                label="Search"
-                variant="outlined"
-                value={searchText}
-                onChange={handleSearchChange}
-            />
-            {/* Workers table */}
+        <div className="all background-img tab">
+        <div className='all '>
+            <div className='toflex'>
+                <h1 className='col'>Worker's Table</h1>
+                <textarea className='text'
+                    placeholder="Search"
+                    variant="outlined"
+                    value={searchText}
+                    onChange={handleSearchChange}
+                /></div>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="Workers table">
-                    <TableHead>
+                    <TableHead >
                         <TableRow>
                             <TableCell>First Name</TableCell>
                             <TableCell>Last Name</TableCell>
@@ -77,11 +78,9 @@ export default function WorkersTable() {
                             <TableCell></TableCell>
                             <TableCell></TableCell>
                             <TableCell>
-                                {/* Button to navigate to add worker page */}
                                 <IconButton component={Link} to="/addWorker" size="small">
                                     <AddCircleIcon />
                                 </IconButton>
-                                {/* Show add worker form */}
                                 {showAddWorkerForm}
                             </TableCell>
                         </TableRow>
@@ -89,7 +88,6 @@ export default function WorkersTable() {
                     <TableBody>
                         {filteredWorkers.map((worker, index) => (
                             <React.Fragment key={worker.id}>
-                                {/* Table row for each worker */}
                                 <TableRow onClick={() => handleRowClick(index)}>
                                     <TableCell>{worker.firstName}</TableCell>
                                     <TableCell>{worker.lastName}</TableCell>
@@ -97,7 +95,6 @@ export default function WorkersTable() {
                                     <TableCell>{worker.startDate}</TableCell>
                                     <TableCell>
                                         <IconButton size="small">
-                                            {/* Show expand icon based on row index */}
                                             {expandedRow === index ? <ExpandLessIcon /> : <ExpandMoreIcon />}
                                         </IconButton>
                                     </TableCell>
@@ -112,43 +109,44 @@ export default function WorkersTable() {
                                         </IconButton>
                                     </TableCell>
                                 </TableRow>
-                                {/* Collapsed row for displaying worker details */}
                                 <TableRow>
                                     <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={7}>
                                         <Collapse in={expandedRow === index}>
-                                            {/* Display worker details */}
-                                            <Typography variant="body2" gutterBottom>
-                                                First Name: {worker.firstName}
-                                            </Typography>
-                                            <Typography variant="body2" gutterBottom>
-                                                Last Name: {worker.lastName}
-                                            </Typography>
-                                            <Typography variant="body2" gutterBottom>
-                                                TZ: {worker.tz}
-                                            </Typography>
-                                            <Typography variant="body2" gutterBottom>
-                                                Birth Date: {worker.birthDate}
-                                            </Typography>
-                                            <Typography variant="body2" gutterBottom>
-                                                Start Date: {worker.startDate}
-                                            </Typography>
-                                            <Typography variant="body2" gutterBottom>
-                                                My Gender: {worker.gender}
-                                            </Typography>
-                                            <Typography variant="body2" gutterBottom>
-                                                Image:
-                                                <img src={worker.imageURL} alt={`Image of ${worker.firstName} ${worker.lastName}`} style={{ width: '20%', height: 'auto' }} />
-                                            </Typography>
-                                            <Typography variant="body2" gutterBottom>
-                                                Roles:
-                                            </Typography>
-                                            {/* Display worker roles */}
-                                            <ul>
-                                                {worker.roles.map((rolep, index) => {
-                                                    const role = roles.find(role => role.id === rolep.roleId);
-                                                    return <li key={index}>{role ? role.name : 'Unknown Role'}</li>;
-                                                })}
-                                            </ul>
+                                            <div className='toflex'>
+                                                <div>
+                                                    <Typography variant="body2" gutterBottom>
+                                                        <p> First Name: {worker.firstName}</p>
+                                                    </Typography>
+                                                    <Typography variant="body2" gutterBottom>
+                                                        <p>Last Name: {worker.lastName}</p>
+                                                    </Typography>
+                                                    <Typography variant="body2" gutterBottom>
+                                                        <p> TZ: {worker.tz}</p>
+                                                    </Typography>
+                                                    <Typography variant="body2" gutterBottom>
+                                                        <p> Birth Date: {worker.birthDate}</p>
+                                                    </Typography>
+                                                    <Typography variant="body2" gutterBottom>
+                                                        <p>Start Date: {worker.startDate}</p>
+                                                    </Typography>
+                                                    <Typography variant="body2" gutterBottom>
+                                                        <p> My Gender: {worker.gender}</p>
+                                                    </Typography>
+                                                </div>
+                                                <div>
+                                                    <Typography variant="body2" gutterBottom>
+                                                        <p>Roles:</p>
+                                                    </Typography>
+                                                    <ul>
+                                                        {worker.roles.map((rolep, index) => {
+                                                            const role = roles.find(role => role.id === rolep.roleId);
+                                                            return <li key={index}>{role ? role.name : 'Unknown Role'}</li>;
+                                                        })}
+                                                    </ul></div>
+                                                <Typography variant="body2" gutterBottom>
+                                                    <img src={worker.imageURL} alt={`Image of ${worker.firstName} ${worker.lastName}`} style={{ width: '50%', height: 'auto' }} />
+                                                </Typography>
+                                            </div>
                                         </Collapse>
                                     </TableCell>
                                 </TableRow>
@@ -157,8 +155,8 @@ export default function WorkersTable() {
                     </TableBody>
                 </Table>
             </TableContainer>
-            {/* Button to export workers to Excel */}
-            <button onClick={exportToExcel}>Export to Excel</button>
-        </div>
+            <br></br>
+            <button className='btn' onClick={exportToExcel}>Export to Excel</button>
+        </div></div>
     );
 }

@@ -21,33 +21,6 @@ namespace Core.Entities
         public bool Active {  get; set; }
         public string ImageURL {  get; set; }
         public List<WorkerRole> Roles { get; set; }
-  //  public Worker(string firstName, string lastName, string tz, DateTime startDate, DateTime birthDate, Gender myGender, bool active,List<Role>roles)
-  //  {
-  //    FirstName = firstName;
-  //    LastName = lastName;
-  //    Tz = tz;
-  //    StartDate = startDate;
-  //    BirthDate = birthDate;
-  //    MyGender = myGender;
-  //    Active = active;
-
-  //    // Fetch roles from the database
-  //    Roles = roles;
-  //  }
-  //  public Worker(string firstName, string lastName, string tz, DateTime startDate, DateTime birthDate, Gender myGender, bool active)
-  //  {
-  //    FirstName = firstName;
-  //    LastName = lastName;
-  //    Tz = tz;
-  //    StartDate = startDate;
-  //    BirthDate = birthDate;
-  //    MyGender = myGender;
-  //    Active = active;
-
-  //    // Fetch roles from the database
-    
-  //  }
-
 
   }
 }

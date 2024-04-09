@@ -28,11 +28,11 @@ export default function Roles() {
     })
     const roleSet = new Set();
     roles.forEach(role => {
-        if (!roleSet.has(role.name)) 
-            roleSet.add(role.name); 
+        if (!roleSet.has(role.name))
+            roleSet.add(role.name);
     });
     const onSubmit = (data) => {
-        console.log("data",roleSet)
+        console.log("data", roleSet)
         if (roleSet.has(data.name)) {
             Swal.fire({
                 position: "top-end",
@@ -45,24 +45,25 @@ export default function Roles() {
         }
         dispatch(addRole(data, navigate))
     }
-    
+
     return <>
-        <div >
-            <div>
-                {roles?.map((role) => (
-                    <p key={role.id}> {role?.nameame}</p>))
-                }
-            </div>
-            <div className="cont1">
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <FormControl variant="standard" sx={{ m: 1, minWidth: 120, maxWidth: 185 }}>
-                        <InputLabel id="demo-simple-input-standard-label"> add role </InputLabel>
-                        <Input {...register("name")} />
-                        <p>{errors.name?.message}</p>
-                    </FormControl>
-                    <br />
-                    <input type="submit" className="my-button" />
-                </form>
+        <div className="all background-img add">
+            <div className='add-form'>
+                <div className='form role'>
+                    <div className="formm ro">
+                        <h1>Add Role</h1>
+
+                        <form onSubmit={handleSubmit(onSubmit)}>
+                            <FormControl variant="standard" sx={{ m: 1, minWidth: 120, maxWidth: 185 }}>
+                                <InputLabel id="demo-simple-input-standard-label"> add role </InputLabel>
+                                <Input {...register("name")} />
+                                <p>{errors.name?.message}</p>
+                            </FormControl>
+                            <br />
+                            <input className='btn' type="submit" />
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </>

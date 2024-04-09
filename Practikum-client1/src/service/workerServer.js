@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as Actions from '../store/action'
 import Swal from "sweetalert2";
-export function getWorker() {
+export function getWorkers() {
     return dispatch => {
         axios.get("https://localhost:7059/api/Workers")
             .then(x => {
@@ -51,14 +51,12 @@ export function editWorker(data, navigate) {
                 navigate('/workersTable');
             })
             .catch(err => {
-                console.log("err", err),
                     Swal.fire({
                         position: "top-end",
                         icon: "error",
                         title: "Update failed!",
                         showConfirmButton: false,
                         timer: 1500
-
                     })
             })
     }

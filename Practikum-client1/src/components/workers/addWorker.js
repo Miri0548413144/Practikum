@@ -4,11 +4,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 import { addWorker, editWorker } from '../../service/workerServer';
-import { FormControl, Input, InputLabel, Button, IconButton, Stack, FormControlLabel, Checkbox, MenuItem, FormLabel, FormHelperText, Select, RadioGroup, Radio } from '@mui/material';
+import { FormControl, Input, InputLabel, Button, IconButton, Stack, FormControlLabel, Checkbox, MenuItem, FormLabel, FormHelperText, Select, RadioGroup, Radio, TextField, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import { DeleteForever } from '@mui/icons-material';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 import moment from 'moment';
+import { addRole } from '../../service/roleServer';
 
 const schema = yup.object().shape({
     firstName: yup.string().required('This field is required'),
@@ -37,9 +38,11 @@ export default function AddWorker() {
         resolver: yupResolver(schema),
         defaultValues: state
     });
+    
+
 
     const [gender, setGender] = useState(state?.myGender || '');
-
+    
     useEffect(() => {
         if (state) {
             Object.keys(state).forEach(key => {
@@ -76,14 +79,14 @@ export default function AddWorker() {
             })
             throw new Error("Entering day is not valid");
         }
-        const roleIdSet = new Set(); 
-        let hasDuplicates = false; 
+        const roleIdSet = new Set();
+        let hasDuplicates = false;
 
         data.roles.forEach(role => {
-            if (roleIdSet.has(role.roleId)) { 
-                hasDuplicates = true; 
+            if (roleIdSet.has(role.roleId)) {
+                hasDuplicates = true;
             } else {
-                roleIdSet.add(role.roleId); 
+                roleIdSet.add(role.roleId);
             }
         });
         if (hasDuplicates) {
@@ -96,7 +99,7 @@ export default function AddWorker() {
             })
             throw new Error("There are duplicates in the list of roles");
         }
-       
+
         else {
             if (state) {
                 data["id"] = state.id;
@@ -112,10 +115,12 @@ export default function AddWorker() {
     const { fields: fieldsRoles, append: appendRoles, remove: removeRoles } = useFieldArray({ control, name: 'roles' });
 
     return (
-        <div className="add-worker-form">
-            <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="all background-img add">
+            <div className='add-form'>
+                <div className='form'>
+            <form onSubmit={handleSubmit(onSubmit)} className='formm'>
+                <h1>New Worker</h1>
                 <Stack spacing={2}>
-                    {/* קומפוננטות ה-FormControl לשדות הטופס */}
                     <FormControl variant="standard">
                         <InputLabel htmlFor="first-name">First Name</InputLabel>
                         <Input id="first-name" {...register('firstName')} />
@@ -132,12 +137,12 @@ export default function AddWorker() {
                         <p>{errors.tz?.message}</p>
                     </FormControl>
                     <FormControl variant="standard">
-                        <InputLabel htmlFor="start-date">Start Date</InputLabel>
+                        <p>Start Date</p>
                         <Input id="start-date" type="date" {...register('startDate')} />
                         <p>{errors.startDate?.message}</p>
                     </FormControl>
                     <FormControl variant="standard">
-                        <InputLabel htmlFor="birth-date">Birth Date</InputLabel>
+                        <p>Birth Date</p>
                         <Input id="birth-date" type="date" {...register('birthDate')} />
                         <p>{errors.birthDate?.message}</p>
                     </FormControl>
@@ -159,9 +164,9 @@ export default function AddWorker() {
                                 setValue('myGender', e.target.value);
                             }}
                         >
-                            <FormControlLabel value={0} control={<Radio />} label="Male" />
-                            <FormControlLabel value={1} control={<Radio />} label="Female" />
-                            <FormControlLabel value={2} control={<Radio />} label="Other" />
+                            <FormControlLabel value={1} control={<Radio />} label="Male" />
+                            <FormControlLabel value={2} control={<Radio />} label="Female" />
+                            <FormControlLabel value={3} control={<Radio />} label="Other" />
                         </RadioGroup>
 
                         <FormHelperText>{errors.myGender?.message}</FormHelperText>
@@ -179,8 +184,10 @@ export default function AddWorker() {
                                 />
                                 <p>{errors.roles?.[index]?.isManagement?.message}</p>
                             </FormControl>
+                        
+                                <br></br>
                             <FormControl variant="standard">
-                                <InputLabel htmlFor={`entering-date-${index}`}>Entering Date</InputLabel>
+                                <p htmlFor={`entering-date-${index}`}>Entering Date</p>
                                 <Input id={`entering-date-${index}`} type="date" {...register(`roles.${index}.enteringDate`)} />
                                 <p>{errors.roles?.[index]?.enteringDate?.message}</p>
                             </FormControl>
@@ -205,10 +212,11 @@ export default function AddWorker() {
                         </div>
                     ))}
                 </Stack>
-                <Button variant="contained" onClick={() => appendRoles({ isManagement: false, enteringDate: '', roleId: '' })}>Add Role</Button>
+                <Button className='btn' variant="contained" onClick={() => appendRoles({ isManagement: false, enteringDate: '', roleId: '' })}>Add Role</Button>
                 <br />
-                <Button type="submit" variant="contained">Submit</Button>
+                <Button className='btn' type="submit" variant="contained">Submit</Button>
             </form>
+            </div>
+            </div>
         </div>
-    );
-}
+    )}
